@@ -37,7 +37,7 @@ You can find these installation instructions [here](https://docs.px4.io/master/e
     
    # To open a new bash shell of this container
    
-    docker exec -it drone bash
+    docker exec -it programbot bash
     
    # To Run Simulation
    roslaunch inter_iit_sbb_description empty_world.launch
