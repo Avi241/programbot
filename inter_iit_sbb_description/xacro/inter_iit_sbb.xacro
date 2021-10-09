@@ -1,0 +1,399 @@
+<?xml version="1.0" ?>
+<robot name="inter_iit_sbb" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find inter_iit_sbb_description)/xacro/materials.xacro" />
+<xacro:include filename="$(find inter_iit_sbb_description)/urdf/inter_iit_sbb.trans" />
+<xacro:include filename="$(find inter_iit_sbb_description)/urdf/inter_iit_sbb.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.06301495463172813 0.09167858470193327 0.04065767466634844"/>
+    <mass value="2.5119624293725873"/>
+    <inertia ixx="0.017685" ixy="-6.6e-05" ixz="-0.009075" iyy="0.062932" iyz="-3.2e-05" izz="0.047251"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lidar_f_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.006298902233657533 -4.9679982069394946e-05 0.008645447646453502"/>
+    <mass value="0.0292738467931227"/>
+    <inertia ixx="4e-06" ixy="-0.0" ixz="-0.0" iyy="3e-06" iyz="-0.0" izz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.151085 -0.09175 -0.158938"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/Lidar_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.151085 -0.09175 -0.158938"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/Lidar_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="GPS_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0009866122079694763 3.82499999465602e-07 -1.565954627913424e-07"/>
+    <mass value="0.000508778057428475"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="-0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.019157 -0.09178 -0.151686"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/GPS_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.019157 -0.09178 -0.151686"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/GPS_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="IMU_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0009863522471559513 3.825000002288803e-07 -1.5659546181989725e-07"/>
+    <mass value="0.0005087780574284744"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="-0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.040843 -0.09178 -0.151686"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/IMU_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.040843 -0.09178 -0.151686"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/IMU_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lidar_b_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.006149239155118724 3.8249999959050207e-07 -4.44502591311971e-05"/>
+    <mass value="0.003430435212284337"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="-0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.291283 -0.09178 -0.059141"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/Lidar_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.291283 -0.09178 -0.059141"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/Lidar_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ft_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.441840158962094e-07 0.020000382499999914 2.534634050352369e-07"/>
+    <mass value="0.41997225043001085"/>
+    <inertia ixx="0.002545" ixy="-0.0" ixz="0.0" iyy="0.005003" iyz="0.0" izz="0.002545"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.297135 -0.07178 0.054148"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/ft_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.297135 -0.07178 0.054148"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/ft_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bt_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="1.8422326109046594e-07 0.020000382499999858 -1.565954626733812e-07"/>
+    <mass value="0.4199722504300092"/>
+    <inertia ixx="0.002545" ixy="0.0" ixz="-0.0" iyy="0.005003" iyz="-0.0" izz="0.002545"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.202754 -0.07178 0.054314"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/bt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.202754 -0.07178 0.054314"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/bt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flywheel_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.004117206984191458 3.8249998035588817e-07 -1.5696800198528038e-07"/>
+    <mass value="8.369345689603184"/>
+    <inertia ixx="0.244646" ixy="-0.0" ixz="-0.0" iyy="0.123398" iyz="-0.0" izz="0.123398"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.006726 -0.09178 -0.175686"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/flywheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.006726 -0.09178 -0.175686"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/flywheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="stand1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.008000184223261125 0.12115768037505764 -0.04409780668612165"/>
+    <mass value="0.3682798124552807"/>
+    <inertia ixx="0.001466" ixy="0.0" ixz="-0.0" iyy="0.000225" iyz="0.000446" izz="0.001288"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.202754 -0.155026 0.054314"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/stand1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.202754 -0.155026 0.054314"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/stand1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="stand2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.008000184223261209 -0.1211569153750672 -0.04409780482345152"/>
+    <mass value="0.36827981245528163"/>
+    <inertia ixx="0.001466" ixy="0.0" ixz="-0.0" iyy="0.000225" iyz="-0.000446" izz="0.001288"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.202754 -0.027306 0.054314"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/stand2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.202754 -0.027306 0.054314"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/stand2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bw_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="1.8391281481067168e-07 0.0050003827774467435 -1.5442587548292197e-07"/>
+    <mass value="0.8178108786047759"/>
+    <inertia ixx="0.003155" ixy="-0.0" ixz="-0.0" iyy="0.006177" iyz="0.0" izz="0.003155"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.202754 -0.08678 0.054314"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/bw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.202754 -0.08678 0.054314"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/bw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fw_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.438735698939709e-07 -0.00499961722255321 2.5563299222569613e-07"/>
+    <mass value="0.8178108786047762"/>
+    <inertia ixx="0.003155" ixy="-0.0" ixz="-0.0" iyy="0.006177" iyz="0.0" izz="0.003155"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.297135 -0.09678 0.054148"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/fw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.297135 -0.09678 0.054148"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/fw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="handle_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.03196901092566551 9.744838892933316e-06 -0.06215739437056638"/>
+    <mass value="0.7601192858408754"/>
+    <inertia ixx="0.002279" ixy="3e-06" ixz="6.8e-05" iyy="0.003776" iyz="2e-06" izz="0.002123"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.219516 -0.09178 -0.062365"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/handle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.219516 -0.09178 -0.062365"/>
+    <geometry>
+      <mesh filename="package://inter_iit_sbb_description/meshes/handle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<xacro:include filename="$(find inter_iit_sbb_description)/xacro/joint_motor.xacro"/>
+
+  <xacro:joint_motor motor_name="handle" parent_link="base_link" child_link="handle_1">
+    <xacro:property name="params_yaml" value="$(find inter_iit_sbb_description)/params/joint_motor.yaml"/>
+    <origin rpy="0 0 0" xyz="0.219516 0.09178 0.062365"/>
+    <axis xyz="0.5547 -0.0 -0.83205"/>
+  </xacro:joint_motor>
+
+  <xacro:joint_motor motor_name="drive_wheel" parent_link="base_link" child_link="bw_1">
+    <xacro:property name="params_yaml" value="$(find inter_iit_sbb_description)/params/joint_motor.yaml"/>
+    <origin rpy="0 0 0" xyz="-0.202754 0.08678 -0.054314"/>
+    <axis xyz="-0.0 1.0 -0.0"/>
+  </xacro:joint_motor>
+
+  <xacro:joint_motor motor_name="stand2" parent_link="base_link" child_link="stand2_1">
+    <xacro:property name="params_yaml" value="$(find inter_iit_sbb_description)/params/joint_motor.yaml"/>
+    <origin rpy="0 0 0" xyz="-0.202754 0.027306 -0.054314"/>
+    <axis xyz="-1.0 -0.0 0.0"/>
+  </xacro:joint_motor>
+
+  <xacro:joint_motor motor_name="stand1" parent_link="base_link" child_link="stand1_1">
+    <xacro:property name="params_yaml" value="$(find inter_iit_sbb_description)/params/joint_motor.yaml"/>
+    <origin rpy="0 0 0" xyz="-0.202754 0.155026 -0.054314"/>
+    <axis xyz="-1.0 -0.0 0.0"/>
+  </xacro:joint_motor>
+
+  <xacro:joint_motor motor_name="flywheel" parent_link="base_link" child_link="flywheel_1">
+    <xacro:property name="params_yaml" value="$(find inter_iit_sbb_description)/params/joint_motor.yaml"/>
+    <origin rpy="0 0 0" xyz="-0.006726 0.09178 0.175686"/>
+    <axis xyz="-1.0 0.0 0.0"/>
+  </xacro:joint_motor>
+
+  <!-- fixed joints -->
+
+<joint name="Rigid23" type="fixed">
+  <origin rpy="0 0 0" xyz="0.151085 0.09175 0.158938"/>
+  <parent link="base_link"/>
+  <child link="Lidar_f_1"/>
+</joint>
+
+<joint name="Rigid24" type="fixed">
+  <origin rpy="0 0 0" xyz="0.019157 0.09178 0.151686"/>
+  <parent link="base_link"/>
+  <child link="GPS_1"/>
+</joint>
+
+<joint name="Rigid25" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.040843 0.09178 0.151686"/>
+  <parent link="base_link"/>
+  <child link="IMU_1"/>
+</joint>
+
+<joint name="Rigid26" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.291283 0.09178 0.059141"/>
+  <parent link="base_link"/>
+  <child link="Lidar_b_1"/>
+</joint>
+
+<joint name="Rigid27" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 -0.025 0.0"/>
+  <parent link="fw_1"/>
+  <child link="ft_1"/>
+</joint>
+
+<joint name="Rigid28" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 -0.015 0.0"/>
+  <parent link="bw_1"/>
+  <child link="bt_1"/>
+</joint>
+
+<joint name="Rev33" type="continuous">
+  <origin rpy="0 0 0" xyz="0.077619 0.005 -0.116513"/>
+  <parent link="handle_1"/>
+  <child link="fw_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+
+
+
+
+<!--<joint name="Rev29" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.006726 0.09178 0.175686"/>
+  <parent link="base_link"/>
+  <child link="flywheel_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rev30" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.202754 0.155026 -0.054314"/>
+  <parent link="base_link"/>
+  <child link="stand1_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rev31" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.202754 0.027306 -0.054314"/>
+  <parent link="base_link"/>
+  <child link="stand2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rev32" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.202754 0.08678 -0.054314"/>
+  <parent link="base_link"/>
+  <child link="bw_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+
+
+<joint name="Rev34" type="continuous">
+  <origin rpy="0 0 0" xyz="0.219516 0.09178 0.062365"/>
+  <parent link="base_link"/>
+  <child link="handle_1"/>
+  <axis xyz="0.5547 -0.0 -0.83205"/>
+</joint>-->
+
+</robot>
