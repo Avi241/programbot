@@ -22,6 +22,8 @@ class sbb:
         self.prev_angle = 0.0
         self.kp = 0
         self.ki = 0
+        self.kd=0
+        self.o=0
         self.reset=0
         self.angle_sum=0
 
@@ -56,27 +58,19 @@ class sbb:
         self.ki=Ki
         self.kd=Kd
 
-        # print(self.sbb_orientation_euler[1])
-        self.curr_angle = self.sbb_orientation_euler[1]
+        print(self.sbb_orientation_euler[1])
 
-        self.angle_sum+=self.curr_angle
+        self.curr_angle = self.sbb_orientation_euler[1]
+       
         self.angle_diff=self.curr_angle-self.prev_angle
 
-        if self.curr_angle > 0:
+        self.w = self.kp * self.curr_angle + self.ki*self.angle_sum + self.kd*self.angle_diff
 
-            if self.reset == 0:
-                self.w = 0
+        # self.w+=self.o
 
-            self.w = self.kp * self.curr_angle + self.ki*self.angle_sum + self.kd*self.angle_diff
-            self.data_cmd.data = self.w
-            self.reset = 1
+        self.data_cmd.data = self.w
 
-        if self.curr_angle < 0:
-            if self.reset == 1:
-                self.w = 0
-            self.w = self.kp * self.curr_angle + self.ki*self.angle_sum + self.kd*self.angle_diff
-            self.data_cmd.data = self.w
-            self.reset = 0
+        self.angle_sum+=self.curr_angle
 
         self.prev_angle = self.curr_angle
         
@@ -89,12 +83,12 @@ if __name__ == "__main__":
 
     sbb = sbb()
     r = rospy.Rate(
-        50
+        100
     )  # specify rate in Hz based upon your desired PID sampling time, i.e. if desired sample time is 33ms specify rate as 30Hz
     while not rospy.is_shutdown():
 
         try:
-            sbb.pid(35,1.7,1) # PI Controller
+            sbb.pid(40,0,1.5) # PID Controller
             r.sleep()
         except rospy.exceptions.ROSTimeMovedBackwardsException:
             pass
